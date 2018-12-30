@@ -1,92 +1,53 @@
-*{
+
+ /* Global Styles */
+* {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
-html {
-  font-size: 62.5%;
-}
-
 body {
-  font-size: 1.5rem;
-  line-height: 1.6;
-  font-family: 'Open Sans';
-}
-
-p {
-  display: block;
-  margin-bottom: 15px;
-}
-
-#header {
-  background-color: #ffdb3a;
-  font-size: 2rem;
-  font-weight: 700;
-  font-style: italic;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  color: #FFF;
+  font-family: sans-serif;
   text-align: center;
 }
-
-#footer {
-  background-color: rgb(100, 100, 100);
-  color: #fff;
-  font-size: 1.2rem;
-  font-style: italic;
-
+.intro-text {
+  color: #000;
+}
+/* Layout Styles */
+.page {
   display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-#left-sidebar,
-#right-sidebar {
-  background-color: rgb(230, 230, 230);
-  text-align: center;
-}
-
-#header,
-#left-sidebar,
-#right-sidebar,
-#main {
-  padding: 15px;
-}
-
-/* **************************
-  Holy Grail Layout with CSS Grid
-************************** */
-
-/* Define grid areas */
-#header { grid-area: header; }
-#footer { grid-area: footer; }
-#main { grid-area: main; }
-#left-sidebar { grid-area: ads; }
-#right-sidebar { grid-area: navigation; }
-
-
-.wrapper {
-  display: grid;
-
-  grid-template-areas: "header header header"
-                       "navigation main ads"
-                       "footer footer footer";
-  grid-template-columns: 150px 1fr 150px;
-  grid-template-rows: 100px 1fr 30px;
   min-height: 100vh;
+  flex-direction: column;
 }
-
-
-@media screen and (max-width: 600px) {
-  .wrapper {
-    grid-template-areas: "header"
-                         "navigation"
-                         "main"
-                         "ads"
-                         "footer";
-
-    grid-template-columns: 100%;
-    grid-template-rows: 100px 50px 1fr 50px 30px;
+.page-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+.content {
+  background: #F44336;
+  padding: 20px;
+}
+.rightsidebar, .leftsidebar {
+  background: #FF9800;
+  padding: 20px;
+}
+.rightsidebar {
+  order: -1;
+}
+.header, .footer {
+  flex: none;
+  background: #263238;
+  padding: 20px;
+}
+/* Layout responsive */
+@media  all and (min-width: 768px)  {
+  .page-body {
+    flex-direction: row;
+  }
+  .content {
+    flex: 1;
+  }
+  .rightsidebar, .leftsidebar {
+    flex: 0 0 200px;
   }
 }
